@@ -14,6 +14,7 @@ const multer = require("multer");
 const path = require("path");
 const socketio = require('socket.io');
 const cors = require('cors');
+const http = require('http');
 
 dotenv.config();
 
@@ -51,6 +52,9 @@ app.use(cors());
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+app.get("/", (req, res) => {
+  res.send("HEY THERE");
+})
 
 app.use("/api/users", usersRoute);
 app.use("/api/auth", authRoute);
