@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGO_URL,
 
 
 const server = http.createServer(app);
-const io = require("socket.io")(servver, {
+const io = require("socket.io")(server, {
   cors: {
     origin: "https://elegant-brahmagupta-480edd.netlify.app/",
   },
