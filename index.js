@@ -18,6 +18,8 @@ const http = require('http');
 
 dotenv.config();
 
+app.use(cors());
+
 mongoose.connect(process.env.MONGO_URL,
   {useNewUrlParser: true, useUnifiedTopology: true}, () => {
   console.log("Connected to DB");
@@ -52,7 +54,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   }
 });
 
-app.use(cors());
+
 
 app.use(express.json());
 app.use(helmet());
