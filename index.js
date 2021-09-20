@@ -27,12 +27,7 @@ mongoose.connect(process.env.MONGO_URL,
 
 
 const server = http.createServer(app);
-const io = require("socket.io")(server, {
-  cors: {
-    origin: "*",
-  },
-});
-
+const io = socketio(server);
 
 //middlewares
 
@@ -53,7 +48,6 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
     console.error(error);
   }
 });
-
 
 
 app.use(express.json());
